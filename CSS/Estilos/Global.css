@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Pokemon';
+  src: url('../Fontes/Pocket-Monk.otf') format('opentype');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+  --Geral: 'Roboto';
+  --Pokemon: 'Pokemon';
+}
+
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+}
+

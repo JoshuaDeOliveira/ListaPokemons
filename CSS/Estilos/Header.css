@@ -1,0 +1,68 @@
+header{
+  background-color: gray;
+  border-bottom: 1px black solid;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Home-Menu{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.Menu-Bar{
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  gap: 20px;
+}
+
+.Titulo{
+  font-family: Pokemon;
+}
+
+.Pesquisar{
+  max-width: 400px;
+  min-width: 200px;
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.Pesquisa{
+  width: 100%;
+  padding: 8px 5px;
+  font-size: 18px;
+  background-color: rgb(190, 190, 190);
+}
+
+.Pesquisa:focus{
+  outline: none;
+}
+
+.btn-pesquisar{
+  background: transparent;
+  border: none;
+  position: absolute;
+  right: 10px;
+  top: 8px;
+}
+
+.btn-pesquisar > img{
+  height: 24px;
+}
+
+a > img{
+  height: 44px;
+}
+
+@media screen and (max-width: 600px) {
+  .Menu-Bar{
+    align-items: center;
+    flex-direction: column;
+  }
+}
