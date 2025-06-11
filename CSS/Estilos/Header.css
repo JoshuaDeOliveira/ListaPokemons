@@ -1,7 +1,7 @@
 header{
-  background-color: gray;
+  background-color: rgb(189, 189, 189);
   border-bottom: 1px black solid;
-  padding: 20px;
+  padding: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,7 +10,7 @@ header{
 .Home-Menu{
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .Menu-Bar{
@@ -26,7 +26,7 @@ header{
 }
 
 .Pesquisar{
-  max-width: 400px;
+  max-width: 450px;
   min-width: 200px;
   width: 100%;
   position: relative;
@@ -35,9 +35,13 @@ header{
 
 .Pesquisa{
   width: 100%;
-  padding: 8px 5px;
-  font-size: 18px;
-  background-color: rgb(190, 190, 190);
+  padding: 10px 10px;
+  font-size: 20px;
+  background-color: rgb(240, 240, 240);
+}
+
+.Inicio{
+  font-size: 25px;
 }
 
 .Pesquisa:focus{
@@ -50,6 +54,7 @@ header{
   position: absolute;
   right: 10px;
   top: 8px;
+  cursor: pointer;
 }
 
 .btn-pesquisar > img{
@@ -65,4 +70,49 @@ a > img{
     align-items: center;
     flex-direction: column;
   }
+}
+
+/*NAV*/
+
+nav{
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.ListaRegiões{
+  margin: 5px;
+  padding: 10px;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  list-style: none;
+  gap: 10px;
+}
+
+.btn-região{
+  background-color: rgb(121, 118, 118);
+  padding: 10px;
+  border-radius: 15px;
+  border: 2px solid rgb(48, 46, 46);
+  font-family: var(--Pokemon);
+  font-size: 16pt;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px black;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn-região:hover{
+  background-color: rgb(173, 162, 162);
+  color: black;
+  text-shadow: 2px 2px white;
+}
+
+.RegiãoSelecionada{
+    background-color: rgb(173, 162, 162);
+    color: black;
+    text-shadow: 2px 2px white;
 }

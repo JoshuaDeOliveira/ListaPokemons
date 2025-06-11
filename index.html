@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Pokemons</title>
+  <title>Pokedex</title>
+  <link rel="shortcut icon" href="./CSS/Imgs/Pokeball.ico" type="image/x-icon">
   <link rel="stylesheet" href="./CSS/style.css">
 </head>
 <body>
@@ -13,16 +14,112 @@
         <a href="index.html">
           <img src="./CSS/Imgs/Pokeball.png" class="Menu-Icon" alt="">
         </a>
-        <h1>Inicio</h1>
+        <h1 class="Inicio">Inicio</h1>
       </div>
       <div class="Pesquisar Menu">
-        <input type="text" class="Pesquisa" placeholder="Search">
+        <input type="text" class="Pesquisa" placeholder=" ">
         <button class="btn-pesquisar"><img src="./CSS/Imgs/search-icon.png" alt=""></button>
       </div>
     </div>
   </header>
+  <nav>
+    <ul class="ListaRegiões">
+      <li class="btn-região RegiãoSelecionada" data-testeid="National">National</li>
+      <li class="btn-região" data-testeid="Kanto">Kanto</li>
+      <li class="btn-região" data-testeid="Johto">Johto</li>
+      <li class="btn-região" data-testeid="Hoenn">Hoenn</li>
+      <li class="btn-região" data-testeid="Sinnoh">Sinnoh</li>
+      <li class="btn-região" data-testeid="Unova">Unova</li>
+      <li class="btn-região" data-testeid="Kalos">Kalos</li>
+      <li class="btn-região" data-testeid="Alola">Alola</li>
+      <li class="btn-região" data-testeid="Galar">Galar</li>
+    </ul>
+  </nav>
   <main>
-    
+    <section class="Grid-Pokemon">
+      <div class="Div-Pokemon">
+        <div class="Infos-Pokemon">
+          <div class="Info-Visual">
+            <span class="ID">#001</span>
+            <span class="Name">Pikachu</span>
+          </div>
+          <div class="Tipos">
+            <span class="Type">
+              <img src="CSS/Imgs/IconTypes/grass.png" alt="">
+            </span>
+            <span class="Type">
+              <img src="CSS/Imgs/IconTypes/poison.png" alt="">
+            </span>
+          </div>
+        </div>
+        <div class="Sprites-Pokemons">
+          <img class="Sprite" src="./CSS/Imgs/2017987_bafa3.png" alt="">
+          <img class="Pokeball" src="./CSS/Imgs/Pokeball.png" alt="">
+        </div>
+      </div>
+       <div class="Div-Pokemon">
+        <div class="Infos-Pokemon">
+          <div class="Info-Visual">
+            <span class="ID">#001</span>
+            <span class="Name">Pikachu</span>
+          </div>
+          <div class="Tipos">
+            <span class="Type">
+              <img src="CSS/Imgs/IconTypes/grass.png" alt="">
+            </span>
+            <span class="Type">
+              <img src="CSS/Imgs/IconTypes/poison.png" alt="">
+            </span>
+          </div>
+        </div>
+        <div class="Sprites-Pokemons">
+          <img class="Sprite" src="./CSS/Imgs/2017987_bafa3.png" alt="">
+          <img class="Pokeball" src="./CSS/Imgs/Pokeball.png" alt="">
+        </div>
+      </div>
+       <div class="Div-Pokemon">
+        <div class="Infos-Pokemon">
+          <div class="Info-Visual">
+            <span class="ID">#001</span>
+            <span class="Name">Pikachu</span>
+          </div>
+          <div class="Tipos">
+            <span class="Type">
+              <img src="CSS/Imgs/IconTypes/grass.png" alt="">
+            </span>
+            <span class="Type">
+              <img src="CSS/Imgs/IconTypes/poison.png" alt="">
+            </span>
+          </div>
+        </div>
+        <div class="Sprites-Pokemons">
+          <img class="Sprite" src="./CSS/Imgs/2017987_bafa3.png" alt="">
+          <img class="Pokeball" src="./CSS/Imgs/Pokeball.png" alt="">
+        </div>
+      </div>
+       <div class="Div-Pokemon">
+        <div class="Infos-Pokemon">
+          <div class="Info-Visual">
+            <span class="ID">#001</span>
+            <span class="Name">Pikachu</span>
+          </div>
+          <div class="Tipos">
+            <span class="Type">
+              <img src="CSS/Imgs/IconTypes/grass.png" alt="">
+            </span>
+            <span class="Type">
+              <img src="CSS/Imgs/IconTypes/poison.png" alt="">
+            </span>
+          </div>
+        </div>
+        <div class="Sprites-Pokemons">
+          <img class="Sprite" src="./CSS/Imgs/2017987_bafa3.png" alt="">
+          <img class="Pokeball" src="./CSS/Imgs/Pokeball.png" alt="">
+        </div>
+      </div>
+    </section>
   </main>
+
+  <script type="module" src="./Data/Main.js"></script>
 </body>
 </html>

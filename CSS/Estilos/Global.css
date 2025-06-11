@@ -10,10 +10,35 @@
   --Pokemon: 'Pokemon';
 }
 
+body{
+  background-color: lightcyan;
+}
+
 *{
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-family: 'Roboto';
+  font-family: var(--Geral);
+}
+
+:root{ /*Cores das Tipagens*/
+  --electric: rgb(250, 211, 67);
+  --fire: rgb(239, 45, 45);
+  --water: rgb(27, 89, 255);
+  --flying: rgb(67, 193, 250);
+  --grass: rgb(24, 191, 35);
+  --bug: rgb(71, 255, 83);
+  --normal: rgb(185, 182, 182);
+  --poison: rgb(207, 13, 207);
+  --ghost: rgb(116, 20, 116);
+  --fairy: rgb(243, 145, 162);
+  --ground: rgb(110, 55, 55);
+  --rock: rgb(78, 52, 52);
+  --dark: rgb(34, 34, 34);
+  --ice: rgb(116, 116, 201);
+  --fighting: rgb(212, 161, 65);
+  --steel: rgb(143, 131, 131);
+  --dragon: rgb(93, 123, 255);
+  --psychic: rgb(93, 56, 128);
 }
 

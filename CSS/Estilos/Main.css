@@ -1,3 +1,107 @@
 main{
-  background-color: rgb(207, 206, 206);
+  display: flex;
+  justify-content: center;
+}
+
+.Grid-Pokemon{
+  max-width: 1300px;
+  width: 100%;
+  margin: 10px 10px;
+  background-color: rgb(168, 166, 166);
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  z-index: 1;
+  gap: 20px;
+}
+
+/*Divs dos Pokemons*/
+
+.Info-Visual{
+  display: flex;
+  flex-direction: column;
+}
+
+.Name, .ID{
+  font-family: var(--Pokemon);
+}
+
+.Name{
+  margin: 10px 0px;
+  font-size: 24px;
+}
+
+.Div-Pokemon{
+  background: white;
+  min-height: 180px;
+  max-height: 200px;
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid black;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.ID{
+  font-size: 24px;
+}
+
+.Infos-Pokemon{
+  padding: 14px;
+  padding-right: 0px;
+  max-height: 400px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.Type > img{
+  height: 34px;
+}
+
+.Sprites-Pokemons{
+  position: relative;
+}
+
+.Sprite{
+  position: relative;
+  z-index: 10;
+  height: 160px;
+  top: 25px;
+  right: -29px;
+}
+
+.Pokeball{
+  position: absolute;
+  height: 100px;
+  z-index: 9;
+}
+
+@media screen and (max-width: 1050px) {
+  .Grid-Pokemon{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .Grid-Pokemon{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .Grid-Pokemon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 30px;
+  }
+
+  .Div-Pokemon{
+    max-width: 350px;
+  }
 }
