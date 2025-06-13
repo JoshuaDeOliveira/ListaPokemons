@@ -69,9 +69,9 @@ main{
 .Sprite{
   position: relative;
   z-index: 10;
-  height: 160px;
-  top: 25px;
-  right: -29px;
+  height: 140px;
+  top: 40px;
+  right: -10px;
 }
 
 .Pokeball{
@@ -80,25 +80,25 @@ main{
   z-index: 9;
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1150px) {
   .Grid-Pokemon{
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
   .Grid-Pokemon{
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 650px) {
   .Grid-Pokemon{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 10px 30px;
+    margin: 10px 70px;
   }
 
   .Div-Pokemon{
