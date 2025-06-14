@@ -3,6 +3,7 @@ import {CorrigirID} from "../Utilts/HTMLUtilts.js";
 
 export async function RunIndex(){
   BotoesRegionais()
+  PesquisarPokemons()
   const lista = await ProcurarData('National')
   CriaçãoPokemon(lista)
 }
@@ -10,9 +11,12 @@ export async function RunIndex(){
 let InserirHTML = document.querySelector('.Grid-Pokemon')
 
 function CriaçãoPokemon(Lista){
-  let HTML = ''
+  InserirHTML.innerHTML = '';
+
   Lista.forEach(pokemon => {
-     HTML += `<div class="Div-Pokemon">
+    const div = document.createElement('div');
+    div.classList.add('Div-Pokemon');
+    div.innerHTML += `<div class="Div-Pokemon" data-pokemon-id="${pokemon.ID}">
         <div class="Infos-Pokemon">
           <div class="Info-Visual">
             <span class="ID">#${CorrigirID(pokemon.ID)}</span>
@@ -33,8 +37,8 @@ function CriaçãoPokemon(Lista){
         </div>
       </div>
   `
+  InserirHTML.appendChild(div)
   })
-  InserirHTML.innerHTML = HTML
 }
 
 async function BotoesRegionais(){
@@ -55,4 +59,12 @@ async function BotoesRegionais(){
       }
     })
 })
+}
+
+async function PesquisarPokemons() {
+  let Pesquisar = document.querySelector('.Pesquisa')
+  document.querySelector('.btn-pesquisar').addEventListener('click', () => {
+    const NomePesquisa = (Pesquisar.value).toLowerCase()
+    console.log(NomePesquisa)
+  })
 }

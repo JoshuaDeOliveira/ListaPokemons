@@ -36,15 +36,28 @@ const BuscarURL = async (url, name) => {
 const PokeData = async (Região) => { 
   try {
     const listRegioes = await FetchRegioes()
-    const RegiãoEscolhida = listRegioes.find(item => item.name.toLowerCase() === Região.toLowerCase())
-    
-    if (!RegiãoEscolhida) {
-      throw new Error(`Região "${Região}" não encontrada.`)
+    let RegioesEscolhidas = []
+
+    if (Região === 'Kalos') {
+      const SubRegioes = ['kalos-central', 'kalos-mountain', 'kalos-coastal']
+      SubRegioes.forEach(Região => {
+        const RegiãoEscolhida = listRegioes.find(item =>          ModificarNome(item.name.toLowerCase()) === Região.toLowerCase())
+        RegioesEscolhidas.push(RegiãoEscolhida)
+      })
+    } else {
+      const RegiãoEscolhida = listRegioes.find(item =>          ModificarNome(item.name.toLowerCase()) === Região.toLowerCase())
+      if (!RegiãoEscolhida) {throw new Error(`Região "${Região}" não encontrada.`)}
+      RegioesEscolhidas.push(RegiãoEscolhida)
+    }
+
+    const TodasInformações = []
+    for (const Região of RegioesEscolhidas) {
+      const PokemonsEscolhidos = await FetchRegioesData(Região)
+      TodasInformações.push(...PokemonsEscolhidos.pokemon_entries)
     }
     
-    const PokemonsEscolhidos = await FetchRegioesData(RegiãoEscolhida)
-    const ListaPokemons = PokemonsEscolhidos.pokemon_entries
-    const Acesso = ListaPokemons.map(pokemon => pokemon.pokemon_species)
+    const Acesso = TodasInformações.map(pokemon => pokemon.pokemon_species)
+
     const PokeUrl = Promise.all(
        Acesso.map(async (infos) => {
         try {
@@ -62,6 +75,8 @@ const PokeData = async (Região) => {
     return []
   }
 }
+
+//Tratamento para os dados retirados do Fetch
 
 let ListaPokemons = {}
 
@@ -82,5 +97,14 @@ class Organizar{
     this.Imagem = Data.Pokelist.sprites.other["official-artwork"].front_default
     this.ID = Data.Pokelist.id
     this.Tipos = Data.Pokelist.types
+  }
+}
+
+function ModificarNome(Nome){
+  if (Nome.includes('original')){
+    const NomeCorrigido = Nome.replace('original-', '')
+    return NomeCorrigido
+  } else {
+    return Nome
   }
 }

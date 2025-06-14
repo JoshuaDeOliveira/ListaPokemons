@@ -1,0 +1,75 @@
+body{
+  background-color: white;
+}
+
+/*Botao Voltar*/
+
+.btn{
+  padding: 10px;
+  cursor: pointer;
+}
+
+.btn-voltar{
+  position: absolute;
+  padding: 5px;
+  border-radius: 20px;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-voltar > img{
+  height: 24px;
+}
+
+/*Imagem do Pokemon*/
+
+.Names{
+  text-align: center;
+}
+
+.btn, header{
+  background-color: lightcyan;
+}
+
+header{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 280px;
+  border-radius: 0px 00px 80px 80px;
+}
+
+.imgs-poke{
+  position: relative;
+}
+
+.Pokeball{
+  position: absolute;
+  z-index: 1;
+  right: 6px;
+  height: 220px;
+  opacity: 0.5;
+}
+
+.Sprite-Poke{
+  position: relative;
+  height: 200px;
+  z-index: 10;
+}
+
+/*Informações Pokedex*/
+
+nav{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.btn-pokeinfo{
+  cursor: pointer;
+  color: gray;
+  font-size: 24px;
+  padding: 10px;
+  border-bottom: 1px solid rgb(153, 152, 152);
+}
