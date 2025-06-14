@@ -87,7 +87,7 @@ nav{
 
 /*Info*/
 
-.Pokedex-Info, .Pokedex-Status{
+.Pokedex{
   padding: 15px;
   font-size: 20px;
 }
@@ -121,4 +121,85 @@ nav{
 }
 
 /*Status*/
+
+.Stat-Info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Infos{
+  display: flex;
+  justify-content: space-between;
+  min-width: 300px;
+  margin-right: 20px;
+}
+
+.Stat-Info{
+  margin-bottom: 10px;
+}
+
+.Stat-Bar{
+  min-width: 200px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.Type{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.Type > img{
+  height: 44px;
+}
+
+.Titulo{
+  margin-bottom: 10px;
+}
+
+.Types-Fraquezas{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*Evolution*/
+
+.Grid-Imgs{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: scroll;
+  gap: 20px;
+}
+
+.Evolução{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 750px) {
+  .Grid-Imgs{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .Grid-Imgs{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Evolução{
+    margin-bottom: 20px;
+  }
+}
+
+.Evolução > img{
+  height: 260px;
+}
 
