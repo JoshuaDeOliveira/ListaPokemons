@@ -43,7 +43,6 @@ function CriaçãoPokemon(Lista){
 
 async function BotoesRegionais(){
   const btn = document.querySelectorAll('.btn-região')
-
   btn.forEach(async button => {
     button.addEventListener('click', async () => {
       btn.forEach(b => b.classList.remove('RegiãoSelecionada'));
