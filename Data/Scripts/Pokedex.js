@@ -1,4 +1,7 @@
-export function RunPokedex(){
+import {DadosPokemons} from "../PokeAPI/PokeInfo.js";
+
+export async function RunPokedex(){
+  const Dados = await PegarDados()
   InicioHTML(Object.HTMLInicial)
   BotoesSelecao()
 }
@@ -36,11 +39,18 @@ function InicioHTML(HTML){
   InserirInfo.appendChild(div)
 }
 
+async function PegarDados(){
+  const URL = new URLSearchParams(window.location.search)
+  const PokeId = URL.get('PokeId')
+  const Pokemon = await DadosPokemons(PokeId)
+  return Pokemon
+}
+
 const Object = {
   HTMLInicial: `
         <div class="Descriçao">
-          <h1>MOUSE POKEMON</h1>
-          <p>Pokemon é minha bunda</p>
+          <h1></h1>
+          <p></p>
         </div>
         <div class="Fisico">
           <span>Height - 0.6m</span>

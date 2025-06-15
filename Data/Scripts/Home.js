@@ -6,6 +6,7 @@ export async function RunIndex(){
   PesquisarPokemons()
   const lista = await ProcurarData('National')
   CriaçãoPokemon(lista)
+  RedirecionarInformações()
 }
 
 let InserirHTML = document.querySelector('.Grid-Pokemon')
@@ -16,26 +17,26 @@ function CriaçãoPokemon(Lista){
   Lista.forEach(pokemon => {
     const div = document.createElement('div');
     div.classList.add('Div-Pokemon');
-    div.innerHTML += `<div class="Div-Pokemon" data-pokemon-id="${pokemon.ID}">
-        <div class="Infos-Pokemon">
-          <div class="Info-Visual">
-            <span class="ID">#${CorrigirID(pokemon.ID)}</span>
-            <span class="Name">${pokemon.Nome}</span>
-          </div>
-          <div class="Tipos">
-            <span class="Type">
-              <img src="CSS/Imgs/IconTypes/grass.png" alt="">
-            </span>
-            <span class="Type">
-              <img src="CSS/Imgs/IconTypes/poison.png" alt="">
-            </span>
-          </div>
-        </div>
-        <div class="Sprites-Pokemons">
-          <img class="Sprite" src="${pokemon.Imagem}" alt="">
-          <img class="Pokeball" src="./CSS/Imgs/Pokeball.png" alt="">
-        </div>
+    div.dataset.pokemonId = pokemon.ID
+    div.innerHTML += `
+    <div class="Infos-Pokemon">
+      <div class="Info-Visual">
+        <span class="ID">#${CorrigirID(pokemon.ID)}</span>
+        <span class="Name">${pokemon.Nome}</span>
       </div>
+      <div class="Tipos">
+        <span class="Type">
+          <img src="CSS/Imgs/IconTypes/grass.png" alt="">
+        </span>
+        <span class="Type">
+          <img src="CSS/Imgs/IconTypes/poison.png" alt="">
+        </span>
+      </div>
+    </div>
+    <div class="Sprites-Pokemons">
+      <img class="Sprite" src="${pokemon.Imagem}" alt="">
+      <img class="Pokeball" src="./CSS/Imgs/Pokeball.png" alt="">
+    </div>
   `
   InserirHTML.appendChild(div)
   })
@@ -65,5 +66,15 @@ async function PesquisarPokemons() {
   document.querySelector('.btn-pesquisar').addEventListener('click', () => {
     const NomePesquisa = (Pesquisar.value).toLowerCase()
     console.log(NomePesquisa)
+  })
+}
+
+function RedirecionarInformações(){
+  const Pokemons = document.querySelectorAll('.Div-Pokemon')
+  Pokemons.forEach(Pokemon => {
+    Pokemon.addEventListener('click', () => {
+      const ID = Pokemon.dataset.pokemonId
+      window.location.href = `DetalhesCompletos.html?PokeId=${ID}`
+    })
   })
 }
