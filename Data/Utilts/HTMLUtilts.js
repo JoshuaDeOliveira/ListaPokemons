@@ -5,3 +5,13 @@ export function CorrigirID(ID){
   }
   return CorrigidoID
 }
+
+export function CorrigirFrase(String){
+  return String
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0000-\u001F\u007F-\u009F]/g, ' ')
+    .replace(/[^\x00-\x7F]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();  
+}

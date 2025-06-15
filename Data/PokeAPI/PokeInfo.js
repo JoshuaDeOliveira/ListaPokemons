@@ -28,7 +28,7 @@ class Pokemon{
       Ingles: Poke.DadosAdicionais.name,
       Japones: Poke.DadosAdicionais.names[0].name
     },
-    this.Sprite = Poke.Dados.sprites.front_default,
+    this.Sprite = Poke.Dados.sprites.other["official-artwork"].front_default,
     this.Descrições = {
       Especie: Poke.DadosAdicionais.genera.find(u => u.language.name == 'en').genus,
       Info: Poke.DadosAdicionais.

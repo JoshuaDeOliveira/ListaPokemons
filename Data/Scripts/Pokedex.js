@@ -1,27 +1,31 @@
 import {DadosPokemons} from "../PokeAPI/PokeInfo.js";
+import {PokeUtilts} from "../Utilts/PokeUtilts.js";
+import {CorrigirID, CorrigirFrase} from "../Utilts/HTMLUtilts.js";
 
 export async function RunPokedex(){
-  const Dados = await PegarDados()
-  InicioHTML(Object.HTMLInicial)
+  const Pokemon = await PegarDados()
+  InicioHTML('Inicio', Pokemon)
   BotoesSelecao()
 }
 
 const InserirInfo = document.querySelector('.Informações')
+const InserirInicio = document.querySelector('header')
 
 async function BotoesSelecao() {
   const Seleção = document.querySelectorAll('.btn-pokeinfo')
   Seleção.forEach(button => {
-    button.addEventListener('click', () => {
+    button.addEventListener('click', async () => {
+      const Pokemon = await PegarDados()
       const ID = (button.dataset.testeid).toLowerCase()
       switch (ID) {
         case 'stat':
-          InicioHTML(Object.HTMLStatus)
+          Informações('Status', Pokemon)
           break;
         case 'info':
-          InicioHTML(Object.HTMLInicial)
+          Informações('Inicio', Pokemon)
           break;
         case 'evol':
-          InicioHTML(Object.HTMLEvolution)
+          Informações('Evolution', Pokemon)
           break;
         default:
           console.log('Socorro')
@@ -31,12 +35,18 @@ async function BotoesSelecao() {
   })
 }
 
-function InicioHTML(HTML){
-  const div = document.createElement('section');
-  InserirInfo.innerHTML = ''
-  div.classList.add('Pokedex');
-  div.innerHTML = HTML
-  InserirInfo.appendChild(div)
+async function InicioHTML(Key, PokeDado){
+  const Header = ` 
+    <div class="Names">
+      <h1>${PokeDado.Nomes.Japones}</h1>
+      <h1>${PokeDado.Nomes.Ingles}</h1>
+    </div>
+    <div class="imgs-poke">
+      <img class="Pokeball" src="./CSS/Imgs/Pokeball.png" alt="">
+      <img class="Sprite-Poke" src="${PokeDado.Sprite}" alt="">
+    </div>`
+  InserirInicio.innerHTML = Header  
+  Informações(Key, PokeDado)
 }
 
 async function PegarDados(){
@@ -46,32 +56,46 @@ async function PegarDados(){
   return Pokemon
 }
 
-const Object = {
-  HTMLInicial: `
+async function Informações(Key, PokeDado) {
+  const div = document.createElement('section');
+  InserirInfo.innerHTML = ''
+  div.classList.add('Pokedex');
+  const HTML = await InserirDados(Key, PokeDado)
+  div.innerHTML = HTML
+  InserirInfo.appendChild(div)
+}
+
+async function InserirDados(Key, PokeDado){
+  console.log(PokeDado)
+  switch (Key) {
+    case 'Inicio':
+      const HTMLInicial = `
         <div class="Descriçao">
-          <h1></h1>
-          <p></p>
+          <h1>${PokeDado.Descrições.Especie}</h1>
+          <p>${CorrigirFrase(PokeDado.Descrições.Info)}</p>
         </div>
         <div class="Fisico">
-          <span>Height - 0.6m</span>
-          <span>Weight - 100kg</span>
+          <span>Height - ${PokeUtilts.CorrigirMedidas(PokeDado.Fisicos.Altura)}m</span>
+          <span>Weight - ${PokeUtilts.CorrigirMedidas(PokeDado.Fisicos.Peso)}kg</span>
         </div>
         <div class="Types">
-          <img src="./CSS/Imgs/IconTypes/dark.png" alt="">
+          <img src="" alt="">
         </div>
         <div class="Info">
-          <p>ID: </p>
-          <p>Genero: </p>
+          <p>ID: #${CorrigirID(PokeDado.InfoBase.ID)}</p>
+          <p>Genero: ${PokeUtilts.MostrarGenero(PokeDado.InfoBase.Genero)}</p>
           <p>Catch Rate: </p>
           <p>Habilidades: </p>
-          <p>Base Friendship: </p>
-          <p>Base Exp: </p>
-          <p>Growth Rate: </p>
+          <p>Base Friendship: ${PokeDado.InfoBase.FriendShip}</p>
+          <p>Base Exp: ${PokeDado.InfoBase.Exp}</p>
+          <p>Growth Rate: ${PokeDado.InfoBase.Growth}</p>
           <p>Egg Groups: </p>
         </div>
-     `,
-  HTMLStatus: `
-  <div class="Barras">
+      `
+    return HTMLInicial
+    case 'Status':
+      const HTMLStatus = `
+        <div class="Barras">
           <div class="Stat-Info">
             <div class="Infos">
               <div>HP: </div>
@@ -125,9 +149,11 @@ const Object = {
             <img src="./CSS/Imgs/IconTypes/dark.png" alt="">
           </div>
         </div>
-        `,
-  HTMLEvolution: `
-  <div class="Grid-Imgs">
+        `
+      return HTMLStatus
+    case 'Evolution':
+      const HTMLEvolution = `
+        <div class="Grid-Imgs">
           <div class="Evolução">
             <h1>Pichu</h1>
             <img src="./CSS/Imgs/2017987_bafa3.png" alt="">
@@ -142,4 +168,8 @@ const Object = {
           </div>
         </div>
         `
+      return HTMLEvolution
+    default:
+      break;
+  }
 }
